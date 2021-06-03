@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Jura:wght@700&display=swap');
+
+.wrapper{
+    padding: 0 10px;
+    margin: 0 auto;
+    #fileInput{
+        display: none;
+    }
+    &_startBtn{
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        height: 50px;
+        width: 300px;
+        background-color:rgb(112, 228, 228);
+        border-radius: 15px;
+        font-family: 'Jura', sans-serif;
+        font-size: 20px;
+
+    }
+    &_tables{
+        h2{
+            font-family: 'Jura', sans-serif;
+            font-size: 28px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #fp, #ft{
+            width: 100%;
+            border-collapse : collapse;
+            margin: 0px auto 30px auto;
+            tr{
+                td{
+                    border : 1px solid rgb(0, 0, 0);
+                    min-width: 28px;
+                    max-width: 35px;
+                    text-align: right;
+                    position: relative;
+                    &.first{
+                        background-color: rgb(214, 212, 212);
+                        font-weight: bold;
+                        border-right: 2px solid black;
+                        text-align: center;
+                    }
+                    .count{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border: 1px solid grey;
+                        font-size: 10px;
+                        background-color: black;
+                        color: rgb(255, 255, 255);
+                    }
+                }
+                &.first{
+                    td{
+                        border-right: 1px solid black;
+                        border-bottom: 2px solid #000;
+                    }
+                    :first-child{
+                        border-bottom: 1px solid #000;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+
+@media (max-width: 1050px) {
+    .wrapper{
+        width: 1000px;
+    }
+}
+
+
+
+
