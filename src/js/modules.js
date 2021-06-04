@@ -163,14 +163,26 @@ $.fillingTheMatrixFromObj_fp = (m, mi, o, par) => {
         }
         let m_t = m[i][j];
         if(m_t == ""){
-            m[i][j] = trim;
+            m[i][j] = [];
+            m[i][j].push(trim);
         }
         else{
-            m[i][j] = $.round((m_t + trim)/2);
+            // m[i][j] = $.round((m_t + trim)/2);
+            m[i][j].push(trim);
         }
-        m[i][j] = (m[i][j] == 0) ? 0.01 : m[i][j];
+        // m[i][j] = (m[i][j] == 0) ? 0.01 : m[i][j];
         mi[i][j] = +mi[i][j] + 1;  
     }
+        for(let i = 1; i < m.length; i++){
+            for(let j = 1; j < m[i].length; j++) {
+                if(Array.isArray(m[i][j])){
+                    // debugger;
+                    let sum = m[i][j].reduce((a, b) => a + b, 0);
+                    let result = sum / m[i][j].length;
+                    m[i][j] = $.round(result);
+                }
+            }
+        }
         m.forEach(function(it, i, arr){
             if(it[0]%200 != 0){
                 m.splice(i, 1);
