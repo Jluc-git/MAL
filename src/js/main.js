@@ -33,8 +33,22 @@ function processFile(){
 
 function start(){
     let TIKS = $.strToObj(str, Tik);
-    $.filtrObj(TIKS, 'toz', 80);
+    let T = TIKS.slice();
     $.filtrObj(TIKS, 'pdz', 2);
+    if(TIKS.length != 0){
+       let prt = $.round(TIKS.map((el)=>{
+                        return (el.prt>0) ? el.prt : 110;
+                    })
+                    .reduce((sum, cur)=>{
+                        return sum + cur;
+                    })/TIKS.length);
+
+        let _prt = document.querySelector(".wrapper_prt");
+        _prt.innerHTML = `Средний расход топлива: <span>${prt}</span> л/100км`;
+        console.log(prt); 
+    }
+    
+    $.filtrObj(TIKS, 'toz', 80);
     let matrix = $.createFreqThrMatrix(); // Создание матрицы зависимости от оборотов и дросселя
     let matrix_counts = $.createFreqThrMatrix();
     $.fillingTheMatrixFromObj_ft(matrix, matrix_counts, TIKS, "ktpdk"); //Заполнение матрицы зависимости от оборотов и дросселя

@@ -18,6 +18,14 @@
         font-size: 20px;
 
     }
+    &_prt{
+        font-family: 'Jura', sans-serif;
+        font-size: 20px;
+        span{
+            border: 1px solid black;
+            font-size: 30px;
+        }
+    }
     &_tables{
         h2{
             font-family: 'Jura', sans-serif;

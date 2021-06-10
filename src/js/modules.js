@@ -1,6 +1,6 @@
 const $ = {};
 $.strToObj = (string, classObj) => {
-    let Obj = {};
+    let Obj = [];
     let arrTiks = [];
     let arr = string.split('\n'); 
     arr.splice(0, (arr.indexOf("Send:\t2101"))-1);
